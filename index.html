@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
+    </head>
+
+    <body>
+        <h1>Register</h1>
+
+        <div class="logged-out" style="display: none;">
+            <form id="registration">
+                <input type="text" name="username" placeholder="username">
+                <input type="text" name="email" placeholder="email">
+                <input type="text" name="password" placeholder="password">
+                <button>Sign in</button>
+            </form>
+            <ul id="reg-usuarios"></ul>
+        </div>
+
+        <h1>LogIn</h1>
+
+        <div class="logged-out" style="display: none;" >
+            <form id="login">
+                <input type="text" name="email" placeholder="email">
+                <input type="text" name="password" placeholder="password">
+                <button>Log in</button>
+            </form>
+            <ul id="log-usuarios"></ul>
+        </div> 
+
+        <h1> Logout</h1>
+        <div class="logged-in" style="display: none;">
+            <button id="logout">Logout</button>
+        </div>
+        <h1> Perfil</h1>
+        <div class="logged-in" style="display: none;">
+            <form id="profile">
+                <input type="text" name="imageURL" placeholder="image url">
+                <input type="text" name="bio" placeholder="bio">
+                <input type="text" name="Generos musicales" placeholder="generos musicales">
+                <input type="text" name="link a alguna red" placeholder="link a alguna red">
+                <input type="text" name="genero " placeholder="genero">
+                <input type="text" name="fecha de nacimiento" placeholder="fecha de nacimiento">
+                <button>Update Profile</button>
+            </form>
+            <ul id="profileInfo"></ul>
+        </div>
+        <script>
+             // Your web app's Firebase configuration
+            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+            var firebaseConfig = {
+                apiKey: "AIzaSyD9Q5iLhsVb0-WnyvyVSAsblQ3wf7J1aFk",
+                authDomain: "tunein-2fc6f.firebaseapp.com",
+                databaseURL: "https://tunein-2fc6f.firebaseio.com",
+                projectId: "tunein-2fc6f"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+
+            //auth & firestore references
+            const auth = firebase.auth();
+            const db = firebase.firestore();
+        </script>
+        <script src="scripts/auth.js"></script>
+        <script src="scripts/index.js"></script>
+       </body>
+</html>
